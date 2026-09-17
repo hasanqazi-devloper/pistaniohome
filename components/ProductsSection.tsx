@@ -9,7 +9,7 @@ const products = [
     id: 'plums',
     title: 'Sun-Dried Plums (آلو آفتابی)',
     subtitle: 'Golden Stew Plum • Grade A',
-    image: 'https://images.pexels.com/photos/5155702/pexels-photo-5155702.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.unsplash.com/photo-1595412017587-b7f3117dff54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBnb2xkZW4lMjBwbHVtc3xlbnwwfHwwfHx8MA%3D%3D',
     icon: Sun,
     badge: 'Flagship Export Item',
     desc: 'Sweet & tangy sun-dried plums sourced directly from Mazandaran orchards. Perfect for stewing and bulk packaging.',
@@ -24,7 +24,7 @@ const products = [
     id: 'kashmar-raisins',
     title: 'Kashmar Green Raisins (کشمش سبز)',
     subtitle: 'Long Type • Naturally Sweet',
-    image: 'https://images.pexels.com/photos/31717524/pexels-photo-31717524.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.unsplash.com/photo-1621597121291-fa650ac736e5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRyaWVkJTIwZ3JlZW4lMjBncmFwZXN8ZW58MHx8MHx8fDA%3D',
     icon: Sparkles,
     badge: 'High Bulk Demand',
     desc: 'Slender, dark green naturally dried raisins with paper-thin skin. Renowned for rich aroma and zero additive sugar.',
@@ -39,7 +39,7 @@ const products = [
     id: 'uzbek-raisins',
     title: 'Uzbek Black Raisins (کشمش مویز)',
     subtitle: 'Jumbo Seedless • Dark Purple',
-    image: 'https://images.pexels.com/photos/17877978/pexels-photo-17877978.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.unsplash.com/photo-1516876319496-d5a849a2e89b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBibGFjayUyMGdyYXBlc3xlbnwwfHwwfHx8MA%3D%3D',
     icon: Scale,
     badge: 'Gourmet Organic',
     desc: 'Large seedless dark raisins packed with natural minerals and rich sweetness. Ideal for premium retail packaging.',
@@ -54,7 +54,7 @@ const products = [
     id: 'barberries',
     title: 'Red Barberries (زرشک پفکی)',
     subtitle: 'Puffy Grade • Bright Ruby Red',
-    image: 'https://images.pexels.com/photos/31779629/pexels-photo-31779629.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.unsplash.com/photo-1758696241656-729788612de1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmVkJTIwQmFyYmVycmllc3xlbnwwfHwwfHx8MA%3D%3D',
     icon: Package,
     badge: 'Premium Culinary Export',
     desc: 'Air-dried puffy barberries with intensely vivid red color and balanced sourness. Kept in cold storage.',
@@ -114,21 +114,15 @@ export default function ProductsSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#133A2E] via-[#0B2B22]/40 to-transparent" />
 
                     <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-20">
-                      <span className="bg-[#0B2B22]/90 backdrop-blur-md text-[#C5922E] text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full border border-[#C5922E]/40 shadow-md">
-                        {prod.badge}
-                      </span>
-                      <div className="p-2 bg-[#0B2B22]/90 backdrop-blur-md rounded-full text-[#C5922E] border border-[#1A4337] shadow-md">
-                        <Icon className="w-4 h-4" />
-                      </div>
+                    
+                    
                     </div>
 
                     <div className="absolute bottom-3 left-3 right-3 z-20 space-y-0.5">
                       <h3 className="text-lg font-black text-[#F4F0E6] group-hover:text-[#C5922E] transition-colors drop-shadow">
                         {prod.title}
                       </h3>
-                      <p className="text-[11px] text-[#C5922E] font-bold drop-shadow-sm">
-                        {prod.subtitle}
-                      </p>
+                    
                     </div>
                   </div>
 

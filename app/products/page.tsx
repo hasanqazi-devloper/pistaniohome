@@ -32,51 +32,51 @@ interface Product {
 const productsData: Product[] = [
   {
     id: '1',
-    name: 'Sun-Dried Golden Plums (Aloo Bukhara)',
+    name: 'Sun-Dried Plums (آلو آفتابی)',
     category: 'dried-fruits',
-    grade: 'Super Premium Grade A',
-    moisture: '18% – 22%',
-    packaging: '5kg / 10kg Export Cartons',
+    grade: 'Golden Stew Plum • Grade A',
+    moisture: '16% – 18%',
+    packaging: '5kg / 10kg Carton',
     origin: 'Mazandaran Orchards, Iran',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
-    description: 'Naturally solar-dried without chemical additives. Soft texture, vibrant golden amber color, and balanced acidity.',
-    badge: 'Top Exporter Choice'
+    image: 'https://images.unsplash.com/photo-1595412017587-b7f3117dff54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBnb2xkZW4lMjBwbHVtc3xlbnwwfHwwfHx8MA%3D%3D',
+    description: 'Sweet & tangy sun-dried plums sourced directly from Mazandaran orchards. Perfect for stewing and bulk packaging.',
+    badge: 'Flagship Export Item'
   },
   {
     id: '2',
-    name: 'Organic Black Dried Figs (Estahban)',
-    category: 'dried-fruits',
-    grade: 'AAA Grade (22mm+)',
+    name: 'Kashmar Green Raisins (کشمش سبز)',
+    category: 'raisins',
+    grade: 'Super Long • Naturally Sweet',
     moisture: '< 15%',
-    packaging: '10kg Vacuum Sealed Boxes',
-    origin: 'Fars & Northern Orchards',
-    image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&q=80',
-    description: 'Naturally open-mouthed, high sugar concentration, rich in fiber, and completely mold-free certified.',
-    badge: 'Lab Certified'
+    packaging: '5kg / 10kg Export Cartons',
+    origin: 'Kashmar Orchards, Iran',
+    image: 'https://images.unsplash.com/photo-1621597121291-fa650ac736e5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRyaWVkJTIwZ3JlZW4lMjBncmFwZXN8ZW58MHx8MHx8fDA%3D',
+    description: 'Slender, dark green naturally dried raisins with paper-thin skin. Renowned for rich aroma and zero additive sugar.',
+    badge: 'High Bulk Demand'
   },
   {
     id: '3',
-    name: 'Pitted Sun-Dried Apricots',
-    category: 'dried-fruits',
-    grade: 'Export Grade 1',
-    moisture: '20% – 24%',
-    packaging: '5kg Inner Polybags',
-    origin: 'Northern Iran',
-    image: 'https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&q=80',
-    description: 'Machine-sorted, uniform sizing, zero pit fragments, perfect for industrial food processing and retail packing.',
-    badge: 'High Demand'
+    name: 'Uzbek Black Raisins (کشمش مویز)',
+    category: 'raisins',
+    grade: 'Jumbo Seedless XL',
+    moisture: '14% – 16%',
+    packaging: '5kg Bulk Carton',
+    origin: 'Northern Orchards',
+    image: 'https://images.unsplash.com/photo-1516876319496-d5a849a2e89b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBibGFjayUyMGdyYXBlc3xlbnwwfHwwfHx8MA%3D%3D',
+    description: 'Large seedless dark raisins packed with natural minerals and rich sweetness. Ideal for premium retail packaging.',
+    badge: 'Gourmet Organic'
   },
   {
     id: '4',
-    name: 'Premium Dried Barberries (Zereshk)',
+    name: 'Red Barberries (زرشک پفکی)',
     category: 'specialty',
-    grade: 'Pofaki Grade A',
-    moisture: '14% – 16%',
+    grade: 'Puffy Grade A',
+    moisture: '< 15%',
     packaging: '10kg Master Cartons',
-    origin: 'Khorasan Orchards',
-    image: 'https://images.unsplash.com/photo-1589135763402-99d8636134b2?auto=format&fit=crop&q=80',
-    description: 'Air-dried under shade to maintain deep ruby color and tart flavor profile. COA verified pesticide-free.',
-    badge: 'Shade Dried'
+    origin: 'Khorasan Orchards, Iran',
+    image: 'https://images.unsplash.com/photo-1758696241656-729788612de1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmVkJTIwQmFyYmVycmllc3xlbnwwfHwwfHx8MA%3D%3D',
+    description: 'Air-dried puffy barberries with intensely vivid red color and balanced sourness. Kept in cold storage.',
+    badge: 'Premium Culinary Export'
   }
 ];
 
