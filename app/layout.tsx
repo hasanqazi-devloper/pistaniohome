@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-title: "Siah Almas Bami | Premium Iranian Dates Exporter",
-description: "Sourcing and exporting high-grade Iranian fresh and semi-fresh dates, including Mazafati, Piarom, and Zahedi, directly from Bam and Jiroft orchards.",
+title: "TOSKA Organic | Premium Bulk Dried Fruits & Barberries Exporter",
+description: "Direct B2B supplier and exporter of premium sun-dried golden plums, Kashmar green raisins, Uzbek black raisins, and red barberries (Zereshk). High-volume global freight with complete phytosanitary compliance and custom export packaging.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path
