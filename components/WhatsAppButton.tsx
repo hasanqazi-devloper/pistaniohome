@@ -3,9 +3,9 @@
 import { motion as m } from "framer-motion";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "2348060102925"; // ✅ CGO Coal Export Official WhatsApp Number
+  const phoneNumber = "989000000000";
   const directMessage = encodeURIComponent(
-    "Hello CGO Coal Export Team, I would like to inquire about bulk 40ft HC container quotations and lab analysis reports for Hardwood Charcoal."
+    "Hello TOSKA Organic Team, I would like to inquire about container quotations and lab analysis reports for organic dried fruits."
   );
 
   return (
@@ -16,22 +16,17 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-slate-950 border border-amber-500/40 hover:border-amber-400 shadow-[0_10px_30px_rgba(217,119,6,0.3)] group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-[#0B2B22] border border-[#C5922E]/40 hover:border-[#C5922E] shadow-2xl group transition-all duration-300 transform-gpu active:scale-95 select-none cursor-pointer"
     >
-      {/* Floating Amber Gold Badge */}
-      <div className="absolute -top-7 right-0 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[8px] font-black tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-amber-400/40 font-sans shadow-md pointer-events-none select-none opacity-90 group-hover:opacity-100 transition-all duration-300">
+      <div className="absolute -top-7 right-0 bg-[#C5922E] text-[#0B2B22] text-[8px] font-black tracking-[0.2em] uppercase px-2 py-0.5 rounded border border-[#C5922E]/40 font-sans shadow-md pointer-events-none select-none opacity-90 group-hover:opacity-100 transition-all duration-300">
         B2B·DESK
       </div>
 
-      {/* COAL & AMBER GLOW COIN ENGINE */}
       <div className="relative h-11 w-11 flex items-center justify-center shrink-0 rounded-full overflow-hidden">
-        {/* Deep Slate Charcoal Gradient Layer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#133A2E] to-[#0B2B22] rounded-full shadow-inner transition-transform duration-500 group-hover:scale-105" />
         
-        {/* Amber Ember Glow Radial Reflex */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.25)_0%,transparent_70%)] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(197,146,46,0.25)_0%,transparent_70%)] rounded-full pointer-events-none" />
 
-        {/* Pure WhatsApp SVG Icon in Emerald Green Accent */}
         <svg 
           viewBox="0 0 24 24" 
           className="w-5 h-5 text-emerald-400 relative z-10 fill-current drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
@@ -40,8 +35,7 @@ export default function WhatsAppButton() {
         </svg>
       </div>
 
-      {/* Amber Gold Active Notification Badge */}
-      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[8px] font-black font-sans text-slate-950 shadow-md border border-slate-950">
+      <span className="absolute top-1 right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#C5922E] text-[8px] font-black font-sans text-[#0B2B22] shadow-md border border-[#0B2B22]">
         1
       </span>
     </m.a>

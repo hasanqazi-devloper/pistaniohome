@@ -21,12 +21,12 @@ export default function SohipEliteFinal() {
         <TrustSection />
         <ProductsSection />
         <HeritageStory />
-        {/* <LogisticsEstimator /> */}
+        <LogisticsEstimator />
 
 
         <IndustriesSection />
         <Testimonials />
-        {/* <WhyChooseUsSection /> */}
+        <WhyChooseUsSection />
         <RfqSection />
         <WhatsAppButton/>
       </main>

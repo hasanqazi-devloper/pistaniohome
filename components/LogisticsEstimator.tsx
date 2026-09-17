@@ -1,220 +1,194 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  FlaskConical, 
-  ShieldCheck, 
-  Flame, 
-  CheckCircle2, 
-  Sparkles, 
-  FileText, 
-  Layers, 
-  Zap, 
-  Thermometer, 
-  Clock, 
+import {
+  Ship,
+  Package,
   Scale,
-  Award
+  Truck,
+  RotateCcw,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 
-const productsData = [
-  {
-    id: 'ayin',
-    name: 'Ayin Hardwood',
-    tagline: 'Premium Export Standard • High Density',
-    badge: 'Most Popular',
-    specs: [
-      { label: 'Fixed Carbon', value: '≥ 80%', icon: Flame, status: 'High Purity' },
-      { label: 'Moisture Content', value: '< 8%', icon: Thermometer, status: 'Kiln Dried' },
-      { label: 'Ash Residual', value: '< 3.0%', icon: Layers, status: 'White Ash' },
-      { label: 'Burn Duration', value: '5 - 6+ Hrs', icon: Clock, status: 'Extended Thermal' },
-      { label: 'Calorific Output', value: '> 7,800 kcal', icon: Zap, status: 'Maximum Heat' },
-      { label: '40ft HC Capacity', value: '20 Tons', icon: Scale, status: 'Max Volume' },
-    ],
-    highlight: 'Zero Sparking, Odorless, Double-screened for ZERO dust particles.'
-  },
-  {
-    id: 'restaurant',
-    name: 'Restaurant Grade',
-    tagline: 'Heavy Commercial Charcoal Grills',
-    badge: 'High Heat',
-    specs: [
-      { label: 'Fixed Carbon', value: '75% - 80%', icon: Flame, status: 'Clean Burn' },
-      { label: 'Moisture Content', value: '< 8%', icon: Thermometer, status: 'Low Smoke' },
-      { label: 'Ash Residual', value: '< 2.5%', icon: Layers, status: 'Easy Cleanup' },
-      { label: 'Burn Duration', value: '4 - 5 Hrs', icon: Clock, status: 'Consistent Heat' },
-      { label: 'Calorific Output', value: '> 7,500 kcal', icon: Zap, status: 'Sustained' },
-      { label: '40ft HC Capacity', value: '18 Tons', icon: Scale, status: 'Standard Loading' },
-    ],
-    highlight: 'Ideal for open-kitchen BBQ and rotisserie setups with minimal ash buildup.'
-  },
-  {
-    id: 'shisha',
-    name: 'Shisha Coconut',
-    tagline: 'Cube / Briquette Format • Zero Odor',
-    badge: 'Ultra Pure',
-    specs: [
-      { label: 'Fixed Carbon', value: '≥ 82%', icon: Flame, status: 'Smokeless' },
-      { label: 'Moisture Content', value: '< 5%', icon: Thermometer, status: 'Ultra Dry' },
-      { label: 'Ash Residual', value: '< 2.0%', icon: Layers, status: 'Pure White' },
-      { label: 'Burn Duration', value: '2.5 Hrs', icon: Clock, status: 'Steady Glow' },
-      { label: 'Calorific Output', value: '> 7,600 kcal', icon: Zap, status: 'Clean Ignition' },
-      { label: '40ft HC Capacity', value: '24 Tons', icon: Scale, status: 'Palletized' },
-    ],
-    highlight: 'Strictly zero chemical additives. Pure natural coconut shell binding.'
-  },
-  {
-    id: 'bbq',
-    name: 'BBQ Lumpwood',
-    tagline: 'Retail & Catering Standard',
-    badge: 'Fast Ignition',
-    specs: [
-      { label: 'Fixed Carbon', value: '72% - 78%', icon: Flame, status: 'Quick Light' },
-      { label: 'Moisture Content', value: '< 10%', icon: Thermometer, status: 'Optimal' },
-      { label: 'Ash Residual', value: '< 4.0%', icon: Layers, status: 'Standard' },
-      { label: 'Burn Duration', value: '3 - 4 Hrs', icon: Clock, status: 'Even Burn' },
-      { label: 'Calorific Output', value: '> 7,200 kcal', icon: Zap, status: 'High Temp' },
-      { label: '40ft HC Capacity', value: '18 Tons', icon: Scale, status: 'PP Bags' },
-    ],
-    highlight: 'Perfect balance between fast lighting speed and high flame output.'
-  }
-];
+export default function LogisticsEstimator() {
+  const [cargoWeightKg, setCargoWeightKg] = useState<number>(5000);
+  const [boxWeightKg, setBoxWeightKg] = useState<number>(10);
+  const [containerType, setContainerType] = useState<'20ft' | '40ft'>('20ft');
 
-export default function TechSpecs() {
-  const [activeProduct, setActiveProduct] = useState(productsData[0]);
+  // Exact Logic Maintained
+  const totalBoxes = Math.floor(cargoWeightKg / (boxWeightKg || 1));
+  const containerLimitKg = containerType === '20ft' ? 20000 : 26000;
+  const fillPercentage = Math.min(100, Math.round((cargoWeightKg / containerLimitKg) * 100));
+  const containersNeeded = Math.ceil(cargoWeightKg / containerLimitKg);
+
+  const handleReset = () => {
+    setCargoWeightKg(5000);
+    setBoxWeightKg(10);
+    setContainerType('20ft');
+  };
 
   return (
-    <section id="specs" className="relative bg-slate-950 text-slate-100 py-20 md:py-28 px-4 md:px-12 border-b border-slate-800/80 overflow-hidden">
-      
-      {/* Dynamic Ambient Glow Behind Component */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-12 px-4 sm:px-6 md:px-8 bg-[#051813] text-[#F4F0E6] border-b border-[#1A4337] relative overflow-hidden">
 
-      <div className="relative max-w-7xl mx-auto space-y-12">
-        
-        {/* HEADER SECTION */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-slate-800/80 pb-8">
-          <div className="space-y-4 max-w-2xl">
-            <span className="text-amber-400 text-xs font-black tracking-widest uppercase bg-slate-900 border border-amber-500/30 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-lg backdrop-blur-md">
-              <FlaskConical className="w-3.5 h-3.5 text-amber-400" />
-              SGS &amp; Bureau Veritas Verified
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
-              Export Grade Specification Matrix
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 sm:w-[550px] h-96 sm:h-[550px] bg-[#C5922E]/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+
+        {/* MAIN HEADING (Outside Card & Standard Section Size) */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A4337] pb-4">
+          <div className="space-y-1.5">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#F4F0E6]">
+              Shipment & Container Calculator
             </h2>
-            <p className="text-slate-400 text-sm md:text-base font-normal">
-              Select a charcoal category below to inspect lab-tested physical &amp; chemical properties.
-            </p>
           </div>
 
-          {/* VERIFICATION BADGE */}
-          <div className="flex items-center gap-4 shrink-0 bg-slate-900/90 backdrop-blur-xl p-4 rounded-2xl border border-slate-800 shadow-2xl">
-            <div className="p-3 bg-emerald-950/80 rounded-xl text-emerald-400 border border-emerald-500/30 shadow-inner">
-              <ShieldCheck className="w-7 h-7" />
-            </div>
-            <div>
-              <div className="text-sm font-black text-white flex items-center gap-1.5">
-                <span>100% Pre-Shipment Tested</span>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+          <button
+            onClick={handleReset}
+            className="self-start sm:self-auto flex items-center gap-1.5 text-xs font-semibold text-[#F4F0E6]/70 hover:text-[#C5922E] bg-[#133A2E] border border-[#1A4337] px-3 py-2 rounded-xl transition-all"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset Form</span>
+          </button>
+        </div>
+
+        {/* SINGLE COMPACT ALL-IN-ONE CARD */}
+        <div className="bg-[#133A2E] border border-[#1A4337] rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+
+          {/* Accent Border Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C5922E] to-transparent" />
+
+          {/* CARD GRID LAYOUT */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+
+            {/* LEFT SIDE: CONTROLS */}
+            <div className="md:col-span-6 space-y-4 border-b md:border-b-0 md:border-r border-[#1A4337] pb-6 md:pb-0 md:pr-6">
+
+              {/* Weight Input */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between items-center text-xs sm:text-sm">
+                  <label className="font-bold text-[#F4F0E6]">1. Total Weight</label>
+                  <span className="text-[#C5922E] font-black text-base">{cargoWeightKg.toLocaleString()} kg</span>
+                </div>
+                <input
+                  type="number"
+                  value={cargoWeightKg}
+                  onChange={(e) => setCargoWeightKg(Number(e.target.value))}
+                  className="w-full bg-[#0B2B22] border border-[#1A4337] rounded-xl px-3.5 py-2 text-sm font-bold text-[#F4F0E6] focus:outline-none focus:border-[#C5922E]"
+                  placeholder="Enter weight in KG"
+                />
+                <input
+                  type="range"
+                  min="1000"
+                  max="50000"
+                  step="500"
+                  value={cargoWeightKg}
+                  onChange={(e) => setCargoWeightKg(Number(e.target.value))}
+                  className="w-full accent-[#C5922E] cursor-pointer h-1.5 bg-[#0B2B22] rounded-lg"
+                />
               </div>
-              <span className="text-xs text-slate-400 block mt-0.5">MSDS, Fumigation &amp; Phytosanitary Included</span>
-            </div>
-          </div>
-        </div>
 
-        {/* INTERACTIVE SELECTOR TABS */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {productsData.map((prod) => {
-            const isActive = activeProduct.id === prod.id;
-            return (
-              <button
-                key={prod.id}
-                onClick={() => setActiveProduct(prod)}
-                className={`p-5 rounded-2xl text-left transition-all duration-300 relative border flex flex-col justify-between group ${
-                  isActive 
-                    ? 'bg-slate-900 border-amber-500/80 shadow-[0_10px_30px_rgba(217,119,6,0.15)] scale-[1.02] z-10' 
-                    : 'bg-slate-900/40 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/80'
-                }`}
+              {/* Box Size Select */}
+              <div className="space-y-1.5">
+                <label className="text-xs sm:text-sm font-bold text-[#F4F0E6] block">2. Carton Packaging</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[5, 10, 20].map((kg) => (
+                    <button
+                      key={kg}
+                      onClick={() => setBoxWeightKg(kg)}
+                      className={`py-2 text-xs font-bold rounded-xl border transition-all ${boxWeightKg === kg
+                          ? 'bg-[#C5922E] border-[#C5922E] text-[#0B2B22] shadow-md'
+                          : 'bg-[#0B2B22] border-[#1A4337] text-[#F4F0E6]/70 hover:text-[#F4F0E6]'
+                        }`}
+                    >
+                      {kg} kg Box
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Container Type Select */}
+              <div className="space-y-1.5">
+                <label className="text-xs sm:text-sm font-bold text-[#F4F0E6] block">3. Container Size</label>
+                <div className="grid grid-cols-2 gap-2">
+                  {(['20ft', '40ft'] as const).map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setContainerType(type)}
+                      className={`py-2 text-xs font-bold rounded-xl border flex items-center justify-center gap-2 transition-all ${containerType === type
+                          ? 'bg-[#C5922E] border-[#C5922E] text-[#0B2B22] shadow-md'
+                          : 'bg-[#0B2B22] border-[#1A4337] text-[#F4F0E6]/70 hover:text-[#F4F0E6]'
+                        }`}
+                    >
+                      <Truck className="w-4 h-4" />
+                      {type} Container
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT SIDE: LIVE METRICS & CTA */}
+            <div className="md:col-span-6 space-y-4">
+
+              <div className="flex items-center justify-between text-xs font-bold text-[#C5922E]">
+                <span className="flex items-center gap-1.5"><Scale className="w-4 h-4" /> Live Estimate</span>
+                <span className="text-[10px] text-[#F4F0E6]/60 flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#C5922E]" /> Verified Limits
+                </span>
+              </div>
+
+              {/* Metric Displays */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-[#0B2B22] border border-[#1A4337] p-3 sm:p-4 rounded-2xl">
+                  <div className="flex items-center justify-between text-[#F4F0E6]/60 text-[10px] font-bold uppercase">
+                    <span>Cartons</span>
+                    <Package className="w-4 h-4 text-[#C5922E]" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-black text-[#F4F0E6] mt-1">
+                    {totalBoxes.toLocaleString()} <span className="text-xs text-[#F4F0E6]/60 font-normal">Boxes</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#0B2B22] border border-[#1A4337] p-3 sm:p-4 rounded-2xl">
+                  <div className="flex items-center justify-between text-[#F4F0E6]/60 text-[10px] font-bold uppercase">
+                    <span>Containers</span>
+                    <Ship className="w-4 h-4 text-[#C5922E]" />
+                  </div>
+                  <div className="text-lg sm:text-xl font-black text-[#C5922E] mt-1">
+                    {containersNeeded} <span className="text-xs text-[#F4F0E6]/60 font-normal">x {containerType}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Capacity Bar */}
+              <div className="bg-[#0B2B22] border border-[#1A4337] p-3.5 rounded-2xl space-y-2">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-[#F4F0E6]/70">Container Capacity</span>
+                  <span className="text-[#C5922E]">{fillPercentage}% Full</span>
+                </div>
+                <div className="w-full bg-[#133A2E] h-2.5 rounded-full overflow-hidden border border-[#1A4337]">
+                  <div
+                    className="h-full bg-[#C5922E] transition-all duration-300 rounded-full"
+                    style={{ width: `${fillPercentage}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href="#rfq"
+                className="w-full bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs sm:text-sm py-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg uppercase tracking-wider active:scale-[0.98]"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-md border ${
-                      isActive 
-                        ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' 
-                        : 'bg-slate-800 text-slate-400 border-slate-700'
-                    }`}>
-                      {prod.badge}
-                    </span>
-                    {isActive && <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />}
-                  </div>
-                  <h3 className={`text-base font-black tracking-wide ${isActive ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>
-                    {prod.name}
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-400 mt-3 line-clamp-1 font-medium">
-                  {prod.tagline}
-                </p>
-              </button>
-            );
-          })}
-        </div>
+                <span>Get Freight Quote For This Order</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
 
-        {/* ACTIVE PRODUCT DISPLAY CARD */}
-        <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl space-y-8 relative overflow-hidden backdrop-blur-xl">
-          
-          {/* Active Header Glow Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" />
-
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-800/80 pb-6">
-            <div>
-              <span className="text-xs text-amber-400 font-bold uppercase tracking-widest flex items-center gap-2 mb-1">
-                <Award className="w-4 h-4" />
-                Active Specification Inspection
-              </span>
-              <h3 className="text-2xl md:text-4xl font-black text-white tracking-tight">
-                {activeProduct.name}
-              </h3>
-              <p className="text-xs md:text-sm text-slate-400 mt-1 font-medium">
-                {activeProduct.tagline}
-              </p>
             </div>
 
-            <a
-              href="#rfq"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-slate-950 text-xs font-black px-6 py-3.5 rounded-xl shadow-lg transition-all shrink-0 uppercase tracking-wider transform active:scale-95"
-            >
-              <FileText className="w-4 h-4 stroke-[2.5]" />
-              <span>Download Official {activeProduct.name} COA</span>
-            </a>
-          </div>
-
-          {/* 6 KEY METRICS GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {activeProduct.specs.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div 
-                  key={idx} 
-                  className="bg-slate-950/70 border border-slate-800/80 rounded-2xl p-5 space-y-3 relative group hover:border-amber-500/50 transition-all duration-300 shadow-inner"
-                >
-                  <div className="flex items-center justify-between text-slate-400">
-                    <span className="text-[11px] font-bold uppercase tracking-wider">{item.label}</span>
-                    <Icon className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="text-2xl md:text-3xl font-black text-white tracking-tight">
-                    {item.value}
-                  </div>
-                  <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-0.5 rounded-md inline-block">
-                    {item.status}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* HIGHLIGHT FOOTER */}
-          <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl flex items-center gap-3 text-xs md:text-sm text-slate-300">
-            <Sparkles className="w-5 h-5 text-amber-400 shrink-0" />
-            <span><strong className="text-white font-bold">Quality Guarantee:</strong> {activeProduct.highlight}</span>
           </div>
 
         </div>

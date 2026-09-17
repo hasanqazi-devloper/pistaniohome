@@ -2,119 +2,108 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { 
-  ArrowDown, 
-  ShieldCheck, 
-  Filter, 
-  MessageSquare, 
-  ArrowUpRight,
+import {
+  Search,
+  Filter,
+  ShieldCheck,
+  FileCheck,
   Package,
-  Layers,
-  ThermometerSnowflake,
-  Scale
+  ArrowDown,
+  MessageSquare,
+  ArrowUpRight,
+  ChevronRight,
+  Sparkles,
+  Download
 } from 'lucide-react';
 
+interface Product {
+  id: string;
+  name: string;
+  category: string;
+  grade: string;
+  moisture: string;
+  packaging: string;
+  origin: string;
+  image: string;
+  description: string;
+  badge: string;
+}
+
+const productsData: Product[] = [
+  {
+    id: '1',
+    name: 'Sun-Dried Golden Plums (Aloo Bukhara)',
+    category: 'dried-fruits',
+    grade: 'Super Premium Grade A',
+    moisture: '18% – 22%',
+    packaging: '5kg / 10kg Export Cartons',
+    origin: 'Mazandaran Orchards, Iran',
+    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
+    description: 'Naturally solar-dried without chemical additives. Soft texture, vibrant golden amber color, and balanced acidity.',
+    badge: 'Top Exporter Choice'
+  },
+  {
+    id: '2',
+    name: 'Organic Black Dried Figs (Estahban)',
+    category: 'dried-fruits',
+    grade: 'AAA Grade (22mm+)',
+    moisture: '< 15%',
+    packaging: '10kg Vacuum Sealed Boxes',
+    origin: 'Fars & Northern Orchards',
+    image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&q=80',
+    description: 'Naturally open-mouthed, high sugar concentration, rich in fiber, and completely mold-free certified.',
+    badge: 'Lab Certified'
+  },
+  {
+    id: '3',
+    name: 'Pitted Sun-Dried Apricots',
+    category: 'dried-fruits',
+    grade: 'Export Grade 1',
+    moisture: '20% – 24%',
+    packaging: '5kg Inner Polybags',
+    origin: 'Northern Iran',
+    image: 'https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&q=80',
+    description: 'Machine-sorted, uniform sizing, zero pit fragments, perfect for industrial food processing and retail packing.',
+    badge: 'High Demand'
+  },
+  {
+    id: '4',
+    name: 'Premium Dried Barberries (Zereshk)',
+    category: 'specialty',
+    grade: 'Pofaki Grade A',
+    moisture: '14% – 16%',
+    packaging: '10kg Master Cartons',
+    origin: 'Khorasan Orchards',
+    image: 'https://images.unsplash.com/photo-1589135763402-99d8636134b2?auto=format&fit=crop&q=80',
+    description: 'Air-dried under shade to maintain deep ruby color and tart flavor profile. COA verified pesticide-free.',
+    badge: 'Shade Dried'
+  }
+];
+
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const products = [
-    {
-      id: 'mazafati',
-      name: 'Fresh Mazafati Dates (Bam)',
-      botanicalName: 'Phoenix dactylifera L. - Rotab',
-      category: 'Fresh & Semi-Fresh',
-      moisture: '18% - 22%',
-      shelfLife: '12 Months (Cold Stored 0°C to 5°C)',
-      moq: '15 Metric Tons (1x20ft Reefer FCL)',
-      packaging: '500g / 600g / 800g Retail Boxes (12/Master Carton)',
-      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
-      description: 'Plump, soft black Rotab dates sourced directly from Bam palm orchards. Famous for rich natural sweetness, thin skin, and high juice content.',
-      tags: ['Best Seller', 'Bam Origin']
-    },
-    {
-      id: 'piarom',
-      name: 'Royal Piarom Dates (Chocolate Dates)',
-      botanicalName: 'Phoenix dactylifera L. - Semi-Dry',
-      category: 'Semi-Dry & Dry',
-      moisture: '< 15%',
-      shelfLife: '18 Months (Ambient / Cool Storage)',
-      moq: '5 Metric Tons',
-      packaging: '5kg / 10kg Export Cartons / Vacuum Packed',
-      image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80',
-      description: 'Luxury semi-dry dates with a dark brown skin fused to the flesh. Known as the chocolate date due to its rich caramel-like taste profile.',
-      tags: ['Premium Grade A', 'High Shelf Life']
-    },
-    {
-      id: 'zahedi',
-      name: 'Golden Zahedi Dates',
-      botanicalName: 'Phoenix dactylifera L. - Dry',
-      category: 'Semi-Dry & Dry',
-      moisture: '< 14%',
-      shelfLife: '24 Months (Standard Storage)',
-      moq: '10 Metric Tons',
-      packaging: '10kg / 25kg PP Bags / Master Cartons',
-      image: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&q=80',
-      description: 'Golden-yellow dry dates with low sugar density and long shelf life. Extensively demanded by spice importers, bakeries, and direct consumers.',
-      tags: ['High Demand', 'Industrial & Retail']
-    },
-    {
-      id: 'kaluteh',
-      name: 'Fresh Kaluteh (Kalooteh) Dates',
-      botanicalName: 'Phoenix dactylifera L. - Semi-Fresh',
-      category: 'Fresh & Semi-Fresh',
-      moisture: '16% - 18%',
-      shelfLife: '12 Months (Cold Storage 2°C to 5°C)',
-      moq: '10 Metric Tons',
-      packaging: '5kg / 10kg Cartons or 500g Trays',
-      image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&q=80',
-      description: 'Cultivated in Jiroft groves, similar in appearance to Mazafati but slightly drier texture, offering high resistance to handling during transport.',
-      tags: ['Jiroft Harvest', 'Cost Efficient']
-    },
-    {
-      id: 'rabbi',
-      name: 'Dark Long Rabbi Dates',
-      botanicalName: 'Phoenix dactylifera L. - Semi-Dry',
-      category: 'Semi-Dry & Dry',
-      moisture: '< 16%',
-      shelfLife: '18 Months (Cool Storage)',
-      moq: '5 Metric Tons',
-      packaging: '10kg Bulk Cartons / 1kg Retail Boxes',
-      image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80',
-      description: 'Long reddish-black semi-dry dates with a distinctive chewy texture. Naturally sweet with minimal moisture, ideal for snack manufacturing.',
-      tags: ['Long Shelf Life', 'Chewy Texture']
-    },
-    {
-      id: 'date-paste',
-      name: 'Industrial Date Paste & Syrup',
-      botanicalName: 'Phoenix dactylifera Processed',
-      category: 'Value-Added Products',
-      moisture: '18% - 20%',
-      shelfLife: '18 Months',
-      moq: '10 Metric Tons',
-      packaging: '12.5kg / 25kg Food-Grade Plastic Drums / Buckets',
-      image: 'https://plus.unsplash.com/premium_photo-1673264299391-8ca6b2b1a667?w=500&auto=format&fit=crop&q=60',
-      description: '100% natural date paste without additive sugars or preservatives. Used as natural sweetener for confectionery, energy bars, and bakery products.',
-      tags: ['Industrial Grade', '100% Natural Sugar']
-    }
-  ];
-
-  const categories = ['All', 'Fresh & Semi-Fresh', 'Semi-Dry & Dry', 'Value-Added Products'];
-
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
+  const filteredProducts = productsData.filter((product) => {
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="bg-[#0B2B22] text-[#F4F0E6] min-h-screen selection:bg-[#C5922E] selection:text-[#0B2B22]">
 
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#0B2B22] text-[#F4F0E6] overflow-hidden py-28 md:py-36 border-b border-[#1A4337]">
-        
-        {/* Background Image */}
+     
+
+    {/* PRODUCTS HERO SECTION */}
+      <section className="relative bg-[#0B2B22] text-[#F4F0E6] overflow-hidden py-16 md:py-16 border-b border-[#1A4337]">
+        {/* Background Image & Overlay Gradients */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80"
-            alt="Iranian Date Palms Harvest"
+            alt="Organic Dried Fruit Products Background"
             fill
             priority
             className="object-cover object-center opacity-20 brightness-75 scale-105"
@@ -123,18 +112,12 @@ export default function ProductsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B22] via-transparent to-[#0B2B22]/80" />
         </div>
 
-        {/* Ambient Gold Glow Effects */}
-        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5922E]/15 rounded-full blur-[140px] pointer-events-none animate-pulse" />
+        {/* Ambient Brand Glow Effects */}
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5922E]/10 rounded-full blur-[140px] pointer-events-none animate-pulse" />
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#1A4337]/40 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl space-y-7 text-left">
-            
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-[#133A2E]/90 border border-[#C5922E]/40 px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-[#C5922E] uppercase shadow-xl backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#C5922E] animate-ping" />
-              <span>EXPORT CATALOGUE</span>
-            </div>
 
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none uppercase">
@@ -144,15 +127,15 @@ export default function ProductsPage() {
 
             {/* Subtitle */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#F4F0E6] tracking-tight leading-tight">
-              Export-Grade Iranian Fresh &amp; Dry Dates
+              Export-Grade Organic Dried Produce &amp; Bulk Solutions
             </h2>
 
-            {/* Description */}
+            {/* Paragraph */}
             <p className="text-[#F4F0E6]/80 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl">
-              100% hand-harvested, lab-certified, and cold-stored dates processed in Bam &amp; Jiroft facilities for global B2B distributors.
+              Lab-certified, moisture-controlled, and custom-packaged organic dried fruits sourced directly from Mazandaran orchards for international wholesale procurement.
             </p>
 
-            {/* Action Button */}
+            {/* Action CTA */}
             <div className="pt-2">
               <a
                 href="#catalog"
@@ -167,183 +150,189 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 2. FILTER & CATALOGUE GRID */}
-      <section id="catalog" className="py-20 md:py-28 bg-[#133A2E] border-b border-[#1A4337]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
-          
-          {/* CATEGORY FILTER TABS */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1A4337] pb-6">
-            <div className="flex items-center gap-2 text-xs font-black text-[#C5922E] uppercase tracking-widest">
-              <Filter className="w-4 h-4" />
-              <span>Filter Variety:</span>
-            </div>
+      {/* 2. FILTER & SEARCH BAR */}
+      <section className="py-8 bg-[#133A2E] border-b border-[#1A4337] sticky top-0 z-30 backdrop-blur-md bg-opacity-95">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
 
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 ${
-                    activeCategory === cat
-                      ? 'bg-[#C5922E] text-[#0B2B22] shadow-lg shadow-[#C5922E]/20'
-                      : 'bg-[#0B2B22] text-[#F4F0E6]/80 border border-[#1A4337] hover:border-[#C5922E]/40 hover:text-[#F4F0E6]'
-                  }`}
+          {/* Category Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${selectedCategory === 'all'
+                  ? 'bg-[#C5922E] text-[#0B2B22] shadow-lg shadow-[#C5922E]/20'
+                  : 'bg-[#0B2B22] text-[#F4F0E6]/70 hover:text-[#F4F0E6] border border-[#1A4337]'
+                }`}
+            >
+              All Products
+            </button>
+            <button
+              onClick={() => setSelectedCategory('dried-fruits')}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${selectedCategory === 'dried-fruits'
+                  ? 'bg-[#C5922E] text-[#0B2B22] shadow-lg shadow-[#C5922E]/20'
+                  : 'bg-[#0B2B22] text-[#F4F0E6]/70 hover:text-[#F4F0E6] border border-[#1A4337]'
+                }`}
+            >
+              Sun-Dried Fruits
+            </button>
+            <button
+              onClick={() => setSelectedCategory('specialty')}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${selectedCategory === 'specialty'
+                  ? 'bg-[#C5922E] text-[#0B2B22] shadow-lg shadow-[#C5922E]/20'
+                  : 'bg-[#0B2B22] text-[#F4F0E6]/70 hover:text-[#F4F0E6] border border-[#1A4337]'
+                }`}
+            >
+              Specialty Lineup
+            </button>
+          </div>
+
+          {/* Search Box */}
+          <div className="relative w-full md:w-80">
+            <Search className="w-4 h-4 text-[#C5922E] absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search product, specification..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-[#0B2B22] border border-[#1A4337] focus:border-[#C5922E] text-[#F4F0E6] placeholder-[#F4F0E6]/40 text-xs rounded-xl pl-10 pr-4 py-3 outline-none transition"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. PRODUCT GRID SECTION */}
+      <section className="py-16 md:py-24 bg-[#0B2B22]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-20 space-y-4 bg-[#133A2E] rounded-3xl border border-[#1A4337]">
+              <Filter className="w-12 h-12 text-[#C5922E] mx-auto opacity-50" />
+              <h3 className="text-xl font-bold">No Products Found</h3>
+              <p className="text-xs text-[#F4F0E6]/60">Try clearing your search query or selecting another category.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-[#133A2E] border border-[#1A4337] hover:border-[#C5922E]/50 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between group shadow-xl"
                 >
-                  {cat}
-                </button>
+                  <div>
+                    {/* Image & Badge */}
+                    <div className="relative h-64 sm:h-72 w-full bg-[#0B2B22] overflow-hidden">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#133A2E] via-transparent to-transparent" />
+
+                      <div className="absolute top-4 left-4 bg-[#0B2B22]/90 border border-[#C5922E]/40 px-3 py-1 rounded-full text-[10px] font-black text-[#C5922E] uppercase tracking-wider backdrop-blur-md">
+                        {product.badge}
+                      </div>
+                    </div>
+
+                    {/* Product Specs Content */}
+                    <div className="p-6 sm:p-8 space-y-6">
+                      <div className="space-y-2">
+                        <span className="text-[10px] font-black tracking-widest text-[#C5922E] uppercase block">
+                          Origin: {product.origin}
+                        </span>
+                        <h2 className="text-2xl font-black text-[#F4F0E6] tracking-tight">
+                          {product.name}
+                        </h2>
+                        <p className="text-xs text-[#F4F0E6]/70 leading-relaxed">
+                          {product.description}
+                        </p>
+                      </div>
+
+                      {/* Technical Specs Table */}
+                      <div className="bg-[#0B2B22] border border-[#1A4337] rounded-2xl p-4 space-y-2.5 text-xs">
+                        <div className="flex items-center justify-between border-b border-[#1A4337] pb-2">
+                          <span className="text-[#F4F0E6]/60">Quality Grade:</span>
+                          <span className="font-bold text-[#F4F0E6]">{product.grade}</span>
+                        </div>
+                        <div className="flex items-center justify-between border-b border-[#1A4337] pb-2">
+                          <span className="text-[#F4F0E6]/60">Moisture Control:</span>
+                          <span className="font-bold text-[#C5922E]">{product.moisture}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[#F4F0E6]/60">Export Packaging:</span>
+                          <span className="font-bold text-[#F4F0E6]">{product.packaging}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions & RFQ CTA */}
+                  <div className="p-6 sm:p-8 pt-0 flex flex-col sm:flex-row items-center gap-3">
+                    <a
+                      href="https://wa.me/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-1/2 inline-flex items-center justify-center gap-2 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition shadow-lg shadow-[#C5922E]/10"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Request Sample</span>
+                    </a>
+
+                    <a
+                      href="#rfq"
+                      className="w-full sm:w-1/2 inline-flex items-center justify-center gap-2 bg-[#0B2B22] hover:bg-[#1A4337] border border-[#1A4337] text-[#F4F0E6] font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition"
+                    >
+                      <span>Get FOB Quotation</span>
+                      <ChevronRight className="w-4 h-4 text-[#C5922E]" />
+                    </a>
+                  </div>
+
+                </div>
               ))}
             </div>
-          </div>
-
-          {/* PRODUCTS DISPLAY GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
-              <div 
-                key={product.id}
-                className="bg-[#0B2B22] border border-[#1A4337] hover:border-[#C5922E]/50 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 shadow-xl flex flex-col justify-between group"
-              >
-                <div>
-                  {/* IMAGE CONTAINER */}
-                  <div className="relative h-60 w-full overflow-hidden bg-[#0B2B22]">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B22] via-transparent to-transparent" />
-                    
-                    {/* Tags */}
-                    <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
-                      {product.tags.map((tag, i) => (
-                        <span key={i} className="bg-[#133A2E]/90 border border-[#C5922E]/40 text-[#C5922E] text-[10px] font-black px-2.5 py-1 rounded-full uppercase backdrop-blur-md">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* PRODUCT DETAILS */}
-                  <div className="p-6 space-y-4">
-                    <div>
-                      <span className="text-[10px] font-black tracking-widest text-[#C5922E] uppercase block mb-1">
-                        {product.category}
-                      </span>
-                      <h3 className="text-xl font-black text-[#F4F0E6] tracking-tight leading-tight">
-                        {product.name}
-                      </h3>
-                      <p className="text-xs italic text-[#F4F0E6]/60 font-serif mt-0.5">
-                        {product.botanicalName}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-[#F4F0E6]/80 leading-relaxed font-normal">
-                      {product.description}
-                    </p>
-
-                    {/* KEY SPECS LIST */}
-                    <div className="space-y-2 pt-2 border-t border-[#1A4337]">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#F4F0E6]/60">Moisture Content:</span>
-                        <span className="font-bold text-[#C5922E]">{product.moisture}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#F4F0E6]/60">Storage / Shelf Life:</span>
-                        <span className="font-bold text-[#F4F0E6]">{product.shelfLife}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#F4F0E6]/60">Min. Order (MOQ):</span>
-                        <span className="font-bold text-[#F4F0E6]">{product.moq}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[#F4F0E6]/60">Packaging Type:</span>
-                        <span className="font-bold text-[#F4F0E6]/90 truncate max-w-[170px] text-right" title={product.packaging}>{product.packaging}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ACTION BUTTON */}
-                <div className="p-6 pt-0">
-                  <a
-                    href="#rfq"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#133A2E] hover:bg-[#C5922E] hover:text-[#0B2B22] border border-[#1A4337] hover:border-[#C5922E] text-[#F4F0E6] font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300"
-                  >
-                    <span>Request FOB/CIF Quote</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-
-              </div>
-            ))}
-          </div>
+          )}
 
         </div>
       </section>
 
-      {/* 3. PACKAGING & COLD STORAGE SPECS */}
-      <section className="py-20 md:py-28 bg-[#0B2B22] border-b border-[#1A4337]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-[#C5922E] text-xs font-black tracking-widest uppercase bg-[#133A2E] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block">
-              EXPORTS &amp; PACKAGING
-            </span>
-
-            <h2 className="text-3xl sm:text-4xl font-black text-[#F4F0E6] tracking-tight">
-              Custom Private Labeling &amp; Reefer Packaging
-            </h2>
-
-            <p className="text-[#F4F0E6]/80 text-sm md:text-base leading-relaxed">
-              Whether you require retail-ready branded boxes for supermarket chains or bulk industrial packaging for food processors, we accommodate custom packing specifications.
-            </p>
-
-            <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3 bg-[#133A2E] border border-[#1A4337] p-4 rounded-2xl">
-                <Package className="w-5 h-5 text-[#C5922E] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-[#F4F0E6] uppercase">Retail &amp; Bulk Packing Options</h4>
-                  <p className="text-xs text-[#F4F0E6]/70">500g, 600g, 800g retail trays, or 5kg/10kg heavy-duty corrugated export cartons.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 bg-[#133A2E] border border-[#1A4337] p-4 rounded-2xl">
-                <ThermometerSnowflake className="w-5 h-5 text-[#C5922E] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-[#F4F0E6] uppercase">Cold Chain Reefers</h4>
-                  <p className="text-xs text-[#F4F0E6]/70">40ft Reefer containers dispatched at 0°C to 5°C with continuous temperature tracking.</p>
-                </div>
-              </div>
+      {/* 4. COMPLIANCE & COA DOWNLOAD BANNER */}
+      <section className="py-16 bg-[#133A2E] border-t border-b border-[#1A4337]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-3 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 text-[#C5922E] text-xs font-black uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Lab Verification Assurance</span>
             </div>
-          </div>
-
-          <div className="lg:col-span-6 bg-[#133A2E] border border-[#1A4337] p-8 rounded-3xl space-y-6 text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-[#C5922E]/10 rounded-full blur-3xl pointer-events-none" />
-            <ShieldCheck className="w-16 h-16 text-[#C5922E] mx-auto" />
-            <h3 className="text-xl font-black text-[#F4F0E6] uppercase tracking-tight">Batch Quality Assurance</h3>
-            <p className="text-xs text-[#F4F0E6]/70 max-w-md mx-auto leading-relaxed">
-              Every container includes official Phytosanitary Certificates, Fumigation Inspection, and Lab Certificates of Analysis (COA) for rapid customs release.
+            <h3 className="text-2xl font-black text-[#F4F0E6]">
+              Need Official COA &amp; Technical Datasheets?
+            </h3>
+            <p className="text-xs text-[#F4F0E6]/70 max-w-xl">
+              Download our complete product laboratory analysis reports, moisture testing protocols, and phytosanitary compliance documents.
             </p>
           </div>
 
+          <a
+            href="mailto:export@toska-organic.com"
+            className="inline-flex items-center gap-2.5 bg-[#0B2B22] hover:bg-[#1A4337] border border-[#C5922E]/40 text-[#F4F0E6] font-bold text-xs uppercase tracking-wider px-6 py-4 rounded-xl transition shadow-xl"
+          >
+            <Download className="w-4 h-4 text-[#C5922E]" />
+            <span>Download Spec Sheets (PDF)</span>
+          </a>
         </div>
       </section>
 
-      {/* 4. CALL TO ACTION (RFQ SECTION) */}
-      <section id="rfq" className="py-24 md:py-32 bg-[#0B2B22] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5922E]/10 rounded-full blur-[160px] pointer-events-none" />
-
+      {/* 5. GENERAL RFQ SECTION */}
+      <section id="rfq" className="py-24 bg-[#0B2B22] relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
           <span className="text-[#C5922E] text-xs font-black tracking-widest uppercase bg-[#133A2E] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block">
-            DIRECT WHOLESALE QUOTE
+            WHOLESALE PROCUREMENT
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F4F0E6] tracking-tight leading-tight">
-            Request Product Samples &amp; Container Pricing
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F4F0E6] tracking-tight">
+            Custom Bulk Quotation &amp; Private Labeling
           </h2>
 
-          <p className="text-[#F4F0E6]/80 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed">
-            Specify your desired variety, tonnage, packaging, and target port (e.g., Nhava Sheva, Jebel Ali, St. Petersburg) for a 24-hour FOB or CIF quote.
+          <p className="text-[#F4F0E6]/80 text-sm max-w-xl mx-auto leading-relaxed">
+            Specify your destination port, required packaging dimensions, and tonnage for a binding FOB/CIF price quote within 24 hours.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -351,17 +340,17 @@ export default function ProductsPage() {
               href="https://wa.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-[#C5922E]/20 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl shadow-[#C5922E]/20 transition"
             >
               <MessageSquare className="w-4 h-4 fill-[#0B2B22]" />
-              <span>WhatsApp Quick Connect</span>
+              <span>Direct WhatsApp Inquiry</span>
             </a>
 
             <a
-              href="mailto:export@siah-almas.com"
+              href="mailto:export@toska-organic.com"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#133A2E] hover:bg-[#1A4337] border border-[#1A4337] text-[#F4F0E6] font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition"
             >
-              <span>Email Request</span>
+              <span>Email Official RFQ</span>
               <ArrowUpRight className="w-4 h-4 text-[#C5922E]" />
             </a>
           </div>

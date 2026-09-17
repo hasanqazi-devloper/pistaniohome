@@ -9,24 +9,24 @@ export default function Testimonials() {
 
   const reviews = [
     {
-      name: "Rahul S.",
-      role: "Dry Fruit Wholesaler (India)",
-      text: "Sourcing Mazafati directly from Siah Almas Bami's facilities has completely eliminated our cold chain issues. The moisture control and grading are exceptionally consistent."
+      name: "Tariq H.",
+      role: "Dried Fruit Merchant (Iraq)",
+      text: "Sourcing Sun-Dried Plums directly from TOSKA Organic has eliminated our transit mold issues. The moisture level is exact and the packaging holds up under heavy transport."
     },
     {
-      name: "Dmitry V.",
-      role: "FMCG Distributor (Russia)",
-      text: "The Kaluteh and Rabbi shipments arrived with perfect integrity. Their direct Bam sourcing means we avoid middlemen markups, and the quality is outstanding for our bulk retail clients."
+      name: "Anil K.",
+      role: "Wholesale Spice & Nuts Importer (India)",
+      text: "The Kashmar Green Raisins arrived in pristine condition with consistent color grading. Bypassing middleman brokers saved us significant costs on bulk cartons."
     },
     {
-      name: "Ahmed K.",
-      role: "Gourmet Retail Network (UAE)",
-      text: "We require premium Piarom dates with specific moisture levels. Siah Almas delivers lab-verified batches perfectly packed in shrink wrap, making Jebel Ali port clearance seamless."
+      name: "Sami M.",
+      role: "Food Distribution Manager (UAE)",
+      text: "TOSKA Organic provides clear lab analysis papers for every batch of Zereshk and Uzbek raisins. Their direct Mazandaran processing makes customs clearance seamless."
     },
     {
-      name: "Elena M.",
-      role: "Food Importer (Germany)",
-      text: "Their Zahedi dates are top-tier. Finding a reliable Iranian date exporter with consistent COA documentation is challenging, but Siah Almas provides complete transparency."
+      name: "Viktor P.",
+      role: "Confectionery Supplier (Russia)",
+      text: "Outstanding seedless black raisins. Finding an exporter with consistent quality control and clear phytosanitary documentation is essential for our business, and TOSKA delivers every time."
     }
   ];
 
@@ -34,19 +34,17 @@ export default function Testimonials() {
   const handlePrev = () => setActiveIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-[#133A2E] text-[#F4F0E6] border-y border-[#1A4337] relative z-10 w-full">
+    <section id="testimonials" className="py-16 md:py-16 bg-[#051813] text-[#F4F0E6] border-y border-[#1A4337] relative z-10 w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-24 w-full space-y-12">
 
         {/* HEADER */}
         <div className="text-center space-y-3 w-full">
-          <span className="text-[#C5922E] text-[11px] font-black tracking-widest uppercase bg-[#0B2B22] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block shadow-sm">
-            GLOBAL BUYER REVIEWS
-          </span>
+  
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#F4F0E6]">
             Trusted by Importers Worldwide
           </h2>
           <p className="text-sm font-medium text-[#F4F0E6]/70 max-w-xl mx-auto">
-            Verified testimonials from B2B partners across India, Russia, UAE, and Europe.
+            Verified feedback from wholesale partners across Iraq, India, UAE, and Europe.
           </p>
         </div>
 

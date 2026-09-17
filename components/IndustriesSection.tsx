@@ -2,132 +2,117 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Award, ShieldCheck, TreePalm, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Leaf, CheckCircle2, ArrowUpRight, Award, Globe2 } from 'lucide-react';
 
 export default function DirectSourcing() {
   const highlights = [
-    "Direct ownership & long-term leases of Bam & Jiroft palm groves.",
-    "Advanced cold storage facilities near Bandar Abbas export hub.",
-    "Strict ISO 22000 & HACCP quality control protocols.",
-    "Zero middleman markup, ensuring competitive B2B container rates."
+    "Direct sourcing from top organic orchards in Northern Iran.",
+    "Modern sorting and packaging facilities in Mazandaran.",
+    "Lab-certified moisture control and zero chemical additives.",
+    "Zero middleman markup, ensuring competitive wholesale container rates."
   ];
 
   return (
-    <section id="about-sourcing" className="py-20 md:py-28 bg-[#0B2B22] text-[#F4F0E6] border-y border-[#1A4337] relative z-10 w-full overflow-hidden">
+    <section id="about-sourcing" className="py-16 bg-[#133A2E] text-[#F4F0E6] border-y border-[#1A4337] relative z-10 w-full overflow-hidden">
       
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#C5922E]/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#C5922E]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-24 w-full relative z-10 space-y-16">
-
-        {/* SECTION HEADER */}
-        <div className="text-center space-y-3 w-full max-w-2xl mx-auto">
-          <span className="text-[#C5922E] text-[11px] font-black tracking-widest uppercase bg-[#133A2E] border border-[#1A4337] px-3.5 py-1.5 rounded-full inline-block shadow-sm">
-            ABOUT SIAH ALMAS BAMI
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-[#F4F0E6]">
-            Decades of Direct Date Sourcing
-          </h2>
-          <p className="text-xs sm:text-sm font-medium text-[#F4F0E6]/70 leading-relaxed">
-            Controlling every step from origin palm groves to international container shipments.
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
 
         {/* MAIN ABOUT GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
           
-          {/* LEFT: CLIENT / FOUNDER PICTURE & BADGES */}
+          {/* LEFT: CLIENT PICTURE & FLOATING CARD */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A4337] bg-[#133A2E] shadow-2xl group">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-[#1A4337] bg-[#0B2B22] shadow-2xl group">
               
-              {/* Executive Image Container */}
               <div className="relative h-[420px] sm:h-[480px] w-full">
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/D4E35AQFjNFm12qtURg/profile-framedphoto-shrink_800_800/B4EZ7.Ab9cJgAY-/0/1782377988448?e=1789567200&v=beta&t=n0kR-tIms1t_IVbP1MP3yyKjtRFu0TKCYO3rRjvQ9oM" // Aapni Client/Founder ki image ka path yahan dein
-                  alt="Siah Almas Bami Founder & Director"
+                  src="https://media.licdn.com/dms/image/v2/D4E35AQG-fVnU1Z-ccQ/profile-framedphoto-shrink_800_800/B4EZ_598L3HYAY-/0/1786605192548?e=1790262000&v=beta&t=57WWsTo54_ew_Xzh1Rd1Ydn_CJ5JzCIVH4sIBna_8hM"
+                  alt="Yasser garjiNattaj - TOSKA Organic Founder"
                   fill
-                  className="object-cover object-top filter contrast-[1.05] grayscale-[15%] group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-top filter contrast-[1.05] grayscale-[10%] group-hover:scale-105 transition-transform duration-700"
                   priority
                 />
-                {/* Gradient Overlay for Dark Blend */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B22] via-transparent to-transparent opacity-90" />
               </div>
 
-              {/* FLOATING OVERLAY CARD: FOUNDER INFO */}
+              {/* FLOATING OVERLAY CARD */}
               <div className="absolute bottom-4 left-4 right-4 bg-[#0B2B22]/95 backdrop-blur-md border border-[#C5922E]/30 p-4 rounded-2xl space-y-1 shadow-lg">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-sm font-black text-[#F4F0E6]">Alireza Bami</h4>
+                  <h4 className="text-sm font-black text-[#F4F0E6]">Yasser garjiNattaj</h4>
                   <span className="text-[10px] font-bold text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-2 py-0.5 rounded">
-                    Managing Director
+                    Founder &amp; Director
                   </span>
                 </div>
-                <p className="text-[11px] text-[#F4F0E6]/70">
-                  "Over 25 years of commitment to exporting authentic Iranian fresh dates worldwide."
+                <p className="text-[11px] text-[#F4F0E6]/70 leading-normal">
+                  "Dedicated to delivering authentic, lab-certified Iranian organic dried fruits globally."
                 </p>
               </div>
 
-              {/* BADGE ICON TOP RIGHT */}
               <div className="absolute top-4 right-4 bg-[#0B2B22]/80 backdrop-blur-md p-3 rounded-2xl border border-[#1A4337] text-[#C5922E]">
-                <TreePalm className="w-5 h-5" />
+                <Leaf className="w-5 h-5" />
               </div>
             </div>
           </div>
 
-          {/* RIGHT: STORY, STATS & HIGHLIGHTS */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* RIGHT: HEADINGS, STORY, STATS & HIGHLIGHTS */}
+      {/* RIGHT: CLEAN EDITORIAL CONTENT (NO CARDS) */}
+          <div className="lg:col-span-7 space-y-6">
             
-            <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#F4F0E6] leading-tight">
-                Eliminating Middlemen to Deliver Uncompromised Harvest Quality
-              </h3>
-              <p className="text-xs sm:text-sm text-[#F4F0E6]/80 leading-relaxed font-normal">
-                Siah Almas Bami operates at the heart of Iran’s date capital—Bam and Jiroft. By direct ownership and long-term grove leases, we bypass supply chain markups, guaranteeing full transparency, optimal moisture retention, and certified cold-chain logistics for bulk buyers across India, Russia, Europe, and the Middle East.
-              </p>
+            {/* HEADER */}
+            <div className="space-y-2">
+              <span className="text-[#C5922E] text-xs font-black tracking-widest uppercase bg-[#0B2B22] border border-[#1A4337] px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                <Leaf className="w-3.5 h-3.5 text-[#C5922E]" /> Direct Sourcing &amp; Quality Control
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#F4F0E6] leading-tight">
+                Eliminating Supply Chain Risks for Global Importers
+              </h2>
             </div>
 
-            {/* KEY STATS ROW */}
-            <div className="grid grid-cols-3 gap-3 border-y border-[#1A4337] py-6">
-              <div className="space-y-1">
-                <span className="text-xl sm:text-2xl font-black text-[#C5922E]">25+</span>
-                <p className="text-[10px] sm:text-xs font-semibold text-[#F4F0E6]/70 uppercase tracking-wider">Years Experience</p>
-              </div>
-              <div className="space-y-1 border-x border-[#1A4337] px-3">
-                <span className="text-xl sm:text-2xl font-black text-[#C5922E]">10K+</span>
-                <p className="text-[10px] sm:text-xs font-semibold text-[#F4F0E6]/70 uppercase tracking-wider">Tons Annual Export</p>
-              </div>
-              <div className="space-y-1 pl-1">
-                <span className="text-xl sm:text-2xl font-black text-[#C5922E]">30+</span>
-                <p className="text-[10px] sm:text-xs font-semibold text-[#F4F0E6]/70 uppercase tracking-wider">Export Destinations</p>
-              </div>
-            </div>
+            {/* STORY PARAGRAPH */}
+            <p className="text-xs sm:text-sm font-medium text-[#F4F0E6]/80 leading-relaxed">
+              At TOSKA Organic, we bridge Northern Iran's fertile organic orchards directly with international wholesale buyers. By controlling processing, lab grading, and export packaging at our Mazandaran facility, we eliminate middleman markups and guarantee batch consistency.
+            </p>
 
-            {/* VALUE BULLETS */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/* VALUE BULLETS (CLEAN LIST - NO CARD BOXES) */}
+            <div className="space-y-3 pt-2">
               {highlights.map((point, index) => (
-                <div key={index} className="bg-[#133A2E] border border-[#1A4337] p-3.5 rounded-xl flex items-start gap-3">
+                <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-[#C5922E] shrink-0 mt-0.5" />
-                  <p className="text-xs text-[#F4F0E6]/80 font-medium leading-normal">
+                  <p className="text-xs sm:text-sm text-[#F4F0E6]/90 font-medium leading-relaxed">
                     {point}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* ACTION CALLOUT */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            {/* CERTIFICATION FOOTNOTE */}
+            <div className="flex items-center gap-2 text-xs text-[#F4F0E6]/60 pt-1">
+              <ShieldCheck className="w-4 h-4 text-[#C5922E] shrink-0" />
+              <span>Phytosanitary &amp; Official Lab Analysis Certified</span>
+            </div>
+
+            {/* ACTION CALLOUT (2 BUTTONS) */}
+            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Primary CTA */}
               <a
                 href="#rfq"
-                className="w-full sm:w-auto bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs px-6 py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider"
+                className="bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] font-black text-xs px-6 py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider active:scale-[0.98]"
               >
-                <span>Partner With Us</span>
+                <span>Request Sample Batch</span>
                 <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
               </a>
 
-              <div className="flex items-center gap-2 text-xs text-[#F4F0E6]/60">
-                <ShieldCheck className="w-4 h-4 text-[#C5922E]" />
-                <span>ISO 22000 &amp; Phytosanitary Certified Facility</span>
-              </div>
+              {/* Secondary CTA */}
+              <a
+                href="#specs"
+                className="bg-[#0B2B22] hover:bg-[#133A2E] text-[#F4F0E6] border border-[#1A4337] hover:border-[#C5922E]/50 font-bold text-xs px-6 py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wider"
+              >
+                <span>Download Lab Specs</span>
+              </a>
             </div>
 
           </div>
