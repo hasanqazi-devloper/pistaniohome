@@ -1,9 +1,8 @@
 'use client';
-
+import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, MessageSquare, ArrowUpRight } from 'lucide-react';
-import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -13,20 +12,22 @@ export default function Footer() {
         {/* BRAND OVERVIEW */}
         <div className="space-y-4">
           <Link href="/" className="inline-block group">
-            <div className="relative h-12 w-44 md:w-56 flex items-center transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src="/navbar.png"
-                alt="TOSKA Organic Logo"
-                fill
-                sizes="(max-width: 768px) 176px, 224px"
-                className="object-contain object-left drop-shadow-md"
-                priority
-              />
-            </div>
+            <div className="relative flex items-center transition-transform duration-300 group-hover:scale-105">
+                      <Image
+                        src="/logo.png"
+                        alt="Pistachio Home Logo"
+                        width={200}
+                        height={70}
+                        quality={100}
+                        unoptimized
+                        className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(197,146,46,0.25)] brightness-110 contrast-105"
+                        priority
+                      />
+                    </div>
           </Link>
 
           <p className="text-xs text-[#F4F0E6]/60 leading-relaxed">
-            Direct organic dried fruit processor & exporter from Mazandaran. Sourcing premium Sun-Dried Plums, Kashmar Green Raisins, Uzbek Raisins, and Barberries.
+            Direct Iranian pistachio grower, processor &amp; exporter from Rafsanjan orchards. Supplying premium Fandoghi, Ahmad Aghaei, Akbari, and Green Kernels globally.
           </p>
 
           <div className="pt-2">
@@ -55,17 +56,17 @@ export default function Footer() {
             </li>
             <li>
               <Link href="#about-sourcing" className="hover:text-[#C5922E] transition-colors">
-                Direct Processing
+                Direct Orchards
               </Link>
             </li>
             <li>
               <Link href="#products" className="hover:text-[#C5922E] transition-colors">
-                Organic Catalog
+                Pistachio Catalog
               </Link>
             </li>
             <li>
               <Link href="#specs" className="hover:text-[#C5922E] transition-colors">
-                Quality Matrix
+                Quality &amp; Lab Matrix
               </Link>
             </li>
             <li>
@@ -79,24 +80,24 @@ export default function Footer() {
         {/* EXPORT CATALOG */}
         <div>
           <h4 className="text-[#F4F0E6] font-black text-xs uppercase tracking-widest mb-4">
-            Export Products
+            Pistachio Grades
           </h4>
           <ul className="space-y-2.5 text-xs font-medium">
             <li className="text-[#F4F0E6]/80 flex items-center justify-between">
-              <span>Sun-Dried Stew Plums</span>
-              <span className="text-[10px] font-bold text-[#0B2B22] bg-[#C5922E] px-2 py-0.5 rounded">Grade A</span>
+              <span>Fandoghi Round</span>
+              <span className="text-[10px] font-bold text-[#0B2B22] bg-[#C5922E] px-2 py-0.5 rounded">28/30</span>
             </li>
             <li className="text-[#F4F0E6]/80 flex items-center justify-between">
-              <span>Kashmar Green Raisins</span>
-              <span className="text-[10px] font-bold text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-2 py-0.5 rounded">Long Type</span>
+              <span>Ahmad Aghaei Long</span>
+              <span className="text-[10px] font-bold text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-2 py-0.5 rounded">26/28</span>
             </li>
             <li className="text-[#F4F0E6]/80 flex items-center justify-between">
-              <span>Uzbek Black Raisins</span>
-              <span className="text-[10px] font-bold text-[#F4F0E6]/60 bg-[#133A2E] border border-[#1A4337] px-2 py-0.5 rounded">Seedless</span>
+              <span>Akbari Super Long</span>
+              <span className="text-[10px] font-bold text-[#F4F0E6]/60 bg-[#133A2E] border border-[#1A4337] px-2 py-0.5 rounded">20/22</span>
             </li>
             <li className="text-[#F4F0E6]/80 flex items-center justify-between">
-              <span>Red Barberries (Zereshk)</span>
-              <span className="text-[10px] font-bold text-[#F4F0E6]/60 bg-[#133A2E] border border-[#1A4337] px-2 py-0.5 rounded">Puffy Grade</span>
+              <span>Green Peeled Kernels</span>
+              <span className="text-[10px] font-bold text-[#F4F0E6]/60 bg-[#133A2E] border border-[#1A4337] px-2 py-0.5 rounded">Grade A</span>
             </li>
           </ul>
         </div>
@@ -109,7 +110,7 @@ export default function Footer() {
           <ul className="space-y-3 text-xs font-medium">
             <li className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-[#C5922E] shrink-0 mt-0.5" />
-              <span>Mazandaran Industrial Zone, Northern Iran</span>
+              <span>Rafsanjan Industrial Export Hub, Kerman, Iran</span>
             </li>
             <li className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-[#C5922E] shrink-0" />
@@ -119,8 +120,8 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="w-4 h-4 text-[#C5922E] shrink-0" />
-              <a href="mailto:export@toskaorganic.com" className="hover:text-[#F4F0E6] transition-colors">
-                export@toskaorganic.com
+              <a href="mailto:export@pistachiohome.com" className="hover:text-[#F4F0E6] transition-colors">
+                export@pistachiohome.com
               </a>
             </li>
           </ul>
@@ -130,9 +131,9 @@ export default function Footer() {
 
       {/* FOOTER BOTTOM BAR */}
       <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F4F0E6]/50 gap-4">
-        <p>© {new Date().getFullYear()} TOSKA Organic. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} Pistachio Home. All Rights Reserved.</p>
         <div className="flex items-center gap-4">
-          <span>Regional Exporter: <strong className="text-[#F4F0E6]/80">TOSKA Organic Trading</strong></span>
+          <span>Global Exporter: <strong className="text-[#F4F0E6]/80">Pistachio Home Trade Co.</strong></span>
           <span>|</span>
           <a href="#rfq" className="text-[#C5922E] font-bold hover:underline flex items-center gap-1">
             <span>Container RFQ</span>

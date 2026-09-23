@@ -1,171 +1,119 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { ArrowUpRight, CheckCircle, Package, Sparkles, Scale, Award, Sun } from 'lucide-react';
+import React from "react";
+import Image from "next/image";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const products = [
   {
-    id: 'plums',
-    title: 'Sun-Dried Plums (آلو آفتابی)',
-    subtitle: 'Golden Stew Plum • Grade A',
-    image: 'https://images.unsplash.com/photo-1595412017587-b7f3117dff54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBnb2xkZW4lMjBwbHVtc3xlbnwwfHwwfHx8MA%3D%3D',
-    icon: Sun,
-    badge: 'Flagship Export Item',
-    desc: 'Sweet & tangy sun-dried plums sourced directly from Mazandaran orchards. Perfect for stewing and bulk packaging.',
-    specs: [
-      { label: 'Moisture', value: '16% – 18%' },
-      { label: 'Packaging', value: '5kg / 10kg Carton' },
-      { label: 'Type', value: 'Sun-Dried' },
-    ],
-    bestFor: 'Iraq, India, GCC & European Food Importers',
+    id: "akbari",
+    name: "Akbari Pistachio",
+    type: "Super Long Grade",
+    ounces: "20/22 - 22/24",
+    image: "/p1.png",
   },
   {
-    id: 'kashmar-raisins',
-    title: 'Kashmar Green Raisins (کشمش سبز)',
-    subtitle: 'Long Type • Naturally Sweet',
-    image: 'https://images.unsplash.com/photo-1621597121291-fa650ac736e5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRyaWVkJTIwZ3JlZW4lMjBncmFwZXN8ZW58MHx8MHx8fDA%3D',
-    icon: Sparkles,
-    badge: 'High Bulk Demand',
-    desc: 'Slender, dark green naturally dried raisins with paper-thin skin. Renowned for rich aroma and zero additive sugar.',
-    specs: [
-      { label: 'Moisture', value: '< 15%' },
-      { label: 'Grade', value: 'Super Long' },
-      { label: 'Shelf Life', value: '24 Months' },
-    ],
-    bestFor: 'Wholesale Snack Distributors & South Asia',
+    id: "ahmad-aghaei",
+    name: "Ahmad Aghaei",
+    type: "Long Grade",
+    ounces: "22/24 - 24/26",
+    image: "/p2.png",
   },
   {
-    id: 'uzbek-raisins',
-    title: 'Uzbek Black Raisins (کشمش مویز)',
-    subtitle: 'Jumbo Seedless • Dark Purple',
-    image: 'https://images.unsplash.com/photo-1516876319496-d5a849a2e89b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJpZWQlMjBibGFjayUyMGdyYXBlc3xlbnwwfHwwfHx8MA%3D%3D',
-    icon: Scale,
-    badge: 'Gourmet Organic',
-    desc: 'Large seedless dark raisins packed with natural minerals and rich sweetness. Ideal for premium retail packaging.',
-    specs: [
-      { label: 'Moisture', value: '14% – 16%' },
-      { label: 'Type', value: 'Seedless XL' },
-      { label: 'Packaging', value: '5kg Bulk Carton' },
-    ],
-    bestFor: 'Confectionery, Bakeries & Retail Networks',
+    id: "fandoghi",
+    name: "Fandoghi Pistachio",
+    type: "Round Grade",
+    ounces: "28/30 - 30/32",
+    image: "/p3.png",
   },
   {
-    id: 'barberries',
-    title: 'Red Barberries (زرشک پفکی)',
-    subtitle: 'Puffy Grade • Bright Ruby Red',
-    image: 'https://images.unsplash.com/photo-1758696241656-729788612de1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmVkJTIwQmFyYmVycmllc3xlbnwwfHwwfHx8MA%3D%3D',
-    icon: Package,
-    badge: 'Premium Culinary Export',
-    desc: 'Air-dried puffy barberries with intensely vivid red color and balanced sourness. Kept in cold storage.',
-    specs: [
-      { label: 'Moisture', value: '< 15%' },
-      { label: 'Origin', value: 'Iran Organic' },
-      { label: 'Shipment', value: 'Air / Sea Freight' },
-    ],
-    bestFor: 'Gourmet Spice Merchants & Middle East',
+    id: "kalleh-ghouchi",
+    name: "Kalleh Ghouchi",
+    type: "Jumbo Grade",
+    ounces: "20/22 - 22/24",
+    image: "/p4.png",
   },
 ];
 
 export default function ProductsSection() {
   return (
-    <section id="products" className="relative bg-[#051813] text-[#F4F0E6] py-16 md:py-16 px-4 md:px-12 border-b border-[#1A4337] overflow-hidden">
+    <section id="products" className="py-24 bg-[#051813] text-[#EFECE6] border-b border-[#1A4337] relative overflow-hidden">
       
-      {/* BACKGROUND AMBIENT ACCENT */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[#C5922E]/10 blur-[140px] pointer-events-none" />
-      
-      <div className="relative max-w-7xl mx-auto space-y-16">
+      {/* BACKGROUND GLOW ACCENTS */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#C5922E]/5 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-12 space-y-16 relative z-10">
         
         {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-        
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#F4F0E6] leading-tight">
-            Premium TOSKA Organic Products
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          {/* <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-4 py-1.5 rounded-full">
+            <Sparkles className="w-3.5 h-3.5" />
+            Premium Export Catalog
+          </div> */}
+          <h2 className="text-3xl md:text-5xl font-black text-[#EFECE6] tracking-tight">
+            Select Pistachio Variety
           </h2>
-          <p className="text-[#F4F0E6]/70 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium">
-            Sourced directly, machine-cleaned, and carton-packed at our processing center in Mazandaran.
+          <p className="text-[#EFECE6]/70 text-xs md:text-sm font-medium">
+            Hover over any grade to inspect export specifications & request bulk quotes.
           </p>
         </div>
 
-        {/* PRODUCTS CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {products.map((prod) => {
-            const Icon = prod.icon;
-            return (
-              <div
-                key={prod.id}
-                className="group relative bg-[#133A2E] rounded-3xl border border-[#1A4337] hover:border-[#C5922E] transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1"
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#C5922E] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
+        {/* 3D FLOATING PRODUCTS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((item) => (
+            <div
+              key={item.id}
+              className="group relative h-[320px] bg-gradient-to-b from-[#0B2B22] to-[#08221B] border border-[#1A4337] hover:border-[#C5922E] rounded-3xl p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-3 shadow-2xl hover:shadow-[0_20px_40px_rgba(197,146,46,0.2)] overflow-hidden cursor-pointer"
+            >
+              {/* TOP BADGE */}
+              {/* <div className="flex justify-between items-center z-10">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#C5922E] bg-[#C5922E]/10 border border-[#C5922E]/30 px-2.5 py-1 rounded-lg backdrop-blur-md">
+                  {item.ounces}
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#C5922E] shadow-[0_0_8px_#C5922E]" />
+              </div> */}
 
-                <div>
-                  <div className="relative h-64 w-full overflow-hidden bg-[#0B2B22]">
-                    <Image
-                      src={prod.image}
-                      alt={prod.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      quality={80}
-                      loading={prod.id === 'plums' ? 'eager' : 'lazy'}
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-90 group-hover:brightness-105"
-                      priority={prod.id === 'plums'}
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#133A2E] via-[#0B2B22]/40 to-transparent" />
+              {/* FLOATING PNG CONTAINER WITH BACKDROP PEDESTAL GLOW */}
+              <div className="relative w-full h-48 flex items-center justify-center my-auto">
+                {/* RADIAL GOLD GLOW BEHIND IMAGE */}
+                <div className="absolute w-32 h-32 bg-[#C5922E]/20 rounded-full blur-2xl group-hover:bg-[#C5922E]/35 transition-all duration-500" />
+                
+                {/* PODIUM SHADOW */}
+                <div className="absolute bottom-2 w-28 h-4 bg-black/40 rounded-[100%] blur-md group-hover:scale-125 group-hover:bg-black/60 transition-all duration-500" />
 
-                    <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-20">
-                    
-                    
-                    </div>
-
-                    <div className="absolute bottom-3 left-3 right-3 z-20 space-y-0.5">
-                      <h3 className="text-lg font-black text-[#F4F0E6] group-hover:text-[#C5922E] transition-colors drop-shadow">
-                        {prod.title}
-                      </h3>
-                    
-                    </div>
-                  </div>
-
-                  <div className="p-5 space-y-4">
-                    <p className="text-xs text-[#F4F0E6]/70 leading-relaxed font-normal">
-                      {prod.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {prod.specs.map((spec, i) => (
-                        <span 
-                          key={i} 
-                          className="text-[10px] font-medium text-[#F4F0E6]/90 bg-[#0B2B22] border border-[#1A4337] px-2.5 py-1 rounded-lg flex items-center gap-1"
-                        >
-                          <span className="text-[#F4F0E6]/50">{spec.label}:</span>
-                          <strong className="text-[#C5922E] font-bold">{spec.value}</strong>
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-2 text-xs text-[#F4F0E6]/80 bg-[#0B2B22]/60 p-2.5 rounded-xl border border-[#1A4337]">
-                      <CheckCircle className="w-3.5 h-3.5 text-[#C5922E] shrink-0" />
-                      <span className="truncate text-[11px]">
-                        Target: <strong className="text-[#F4F0E6] font-bold">{prod.bestFor}</strong>
-                      </span>
-                    </div>
-
-                  </div>
+                <div className="relative w-44 h-44 transition-transform duration-700 ease-out group-hover:scale-115 group-hover:-translate-y-3">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.7)]"
+                  />
                 </div>
-
-                <div className="p-5 pt-0">
-                  <a
-                    href="#rfq"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#C5922E] hover:bg-[#B38226] text-[#0B2B22] py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md active:scale-95"
-                  >
-                    <span>Request Sample / Quote</span>
-                    <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-                  </a>
-                </div>
-
               </div>
-            );
-          })}
+
+              {/* CARD FOOTER & HOVER ACTION */}
+              <div className="w-full text-center space-y-3 z-10">
+                <div>
+                  {/* <span className="text-[10px] font-extrabold text-[#C5922E] uppercase tracking-widest block opacity-80">
+                    {item.type}
+                  </span> */}
+                  <h3 className="text-xl font-black text-[#EFECE6] group-hover:text-[#C5922E] transition-colors">
+                    {item.name}
+                  </h3>
+                </div>
+
+                {/* HOVER SLIDE-UP CTA */}
+                <a
+                  href="#rfq"
+                  className="w-full inline-flex items-center justify-center gap-1.5 bg-[#C5922E] hover:bg-[#B38226] text-[#051813] py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-lg transform translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  <span>Inquire Bulk Quote</span>
+                  <ArrowUpRight className="w-4 h-4 stroke-[3]" />
+                </a>
+              </div>
+
+            </div>
+          ))}
         </div>
 
       </div>

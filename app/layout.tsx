@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-title: "TOSKA Organic | Premium Bulk Dried Fruits & Barberries Exporter",
-description: "Direct B2B supplier and exporter of premium sun-dried golden plums, Kashmar green raisins, Uzbek black raisins, and red barberries (Zereshk). High-volume global freight with complete phytosanitary compliance and custom export packaging.",
+title: "Iranian Pistachio Exporter & Wholesale Bulk Supplier | Pistachio Home",
+description: "Direct B2B exporter of premium Iranian pistachios (Akbari, Fandoghi, Ahmad Aghaei & Kaleh Ghouchi). Premium quality, lab-tested, container-load wholesale supply for global markets.",
   // 👑 Site Icons Configuration Engine
   icons: {
     // icon: "/favicon.ico", // public/favicon.ico wala path
